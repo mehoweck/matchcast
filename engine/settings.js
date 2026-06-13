@@ -1,4 +1,4 @@
-const SETTINGS_KEY = 'footex_engine_settings';
+const SETTINGS_KEY = 'matchcast_engine_settings';
 
 export const DEFAULTS = {
   // Strength score weights (must sum to 1.0)

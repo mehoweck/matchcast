@@ -5,7 +5,7 @@ import { loadSettings, saveSettings, resetSettings, DEFAULTS } from '../engine/s
 import { groupTable, predictionPanel, teamProfileModal } from './components.js';
 import { t, getLang, setLang, LANGS } from './i18n.js';
 
-const STORAGE_KEY = 'footex_results';
+const STORAGE_KEY = 'matchcast_results';
 const GROUPS = ['A','B','C','D','E','F','G','H','I','J','K','L'];
 
 // Results for already-played matches (seeded once; user can overwrite)

@@ -156,7 +156,7 @@ const TRANSLATIONS = {
   },
 };
 
-const LANG_KEY = 'footex_lang';
+const LANG_KEY = 'matchcast_lang';
 
 let currentLang = localStorage.getItem(LANG_KEY) || 'en';
 

@@ -1,4 +1,4 @@
-# Footex ⚽
+# MatchCast ⚽
 
 Browser-based FIFA World Cup 2026 fan app. Browse group standings, update match results, and get predictions for any matchup between the 48 qualified nations.
 
@@ -16,11 +16,11 @@ Requires Python 3 or Node.js (for `npx serve`).
 
 ```bash
 # Option 1 — Python (no install needed)
-cd footex
+cd matchcast
 python3 -m http.server 3000
 
 # Option 2 — Node.js
-cd footex
+cd matchcast
 npx serve . --listen 3000
 ```
 
@@ -53,7 +53,7 @@ Each team receives a **Strength Score (0–100)** computed from five equally-wei
 ## Project Structure
 
 ```
-footex/
+matchcast/
   index.html          entry point
   style.css           Pitch Green theme
   data/
