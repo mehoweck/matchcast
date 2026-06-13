@@ -5,22 +5,27 @@ Browser-based FIFA World Cup 2026 fan app. Browse group standings, update match 
 ## Features
 
 - **Group standings** — all 12 groups (A–L), live points table that updates as you enter results
-- **Inline score editing** — click any fixture score to enter the result; press Enter or Save to confirm, Escape to cancel
-- **Match prediction** — select any two WC 2026 teams to get a predicted score, win/draw/win probabilities, and side-by-side stat comparison
+- **Schedule** — full group stage calendar (72 fixtures, Jun 11–28) with kick-off times and venues; click any score to enter results
+- **Inline score editing** — press Enter or Save to confirm, Escape to cancel; results persist across reloads
+- **Match prediction** — select any two WC 2026 teams to get a predicted score, win/draw/loss probabilities, and side-by-side stat comparison
 - **Team profiles** — click any team name to see FIFA ranking, strength score, attack/defence stats, form history, and upcoming fixtures
-- **xG display** — predicted score is backed by expected goals (Dixon-Coles model + Poisson mode rounding)
+- **Stats** — compare scoreline distributions: historical WC 1986–2022 data vs engine predictions vs your entered results
+- **Settings** — tune the prediction engine weights and xG formula parameters in real time
+- **EN/PL language toggle**
 
 ## How to Run
 
 Requires Python 3 or Node.js (for `npx serve`).
 
 ```bash
-# Option 1 — Python (no install needed)
+# Clone the repository
+git clone https://github.com/mehoweck/matchcast.git
 cd matchcast
+
+# Option 1 — Python (no install needed)
 python3 -m http.server 3000
 
 # Option 2 — Node.js
-cd matchcast
 npx serve . --listen 3000
 ```
 
