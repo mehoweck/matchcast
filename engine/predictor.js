@@ -77,18 +77,8 @@ export function predict(homeTeam, awayTeam, allTeams, settingsOverride) {
   const xgA = Math.max(0, rawXgA * (s.xgBaseHome + strDiff * s.xgStrengthImpact));
   const xgB = Math.max(0, rawXgB * (s.xgBaseHome - strDiff * s.xgStrengthImpact));
 
-  function poissonMode(lambda) {
-    let best = 0, bestP = Math.exp(-lambda);
-    let p = bestP;
-    for (let k = 1; k <= 5; k++) {
-      p = p * lambda / k;
-      if (p > bestP) { bestP = p; best = k; }
-    }
-    return best;
-  }
-
-  const scoreA = poissonMode(xgA);
-  const scoreB = poissonMode(xgB);
+  const scoreA = Math.round(xgA);
+  const scoreB = Math.round(xgB);
 
   const [favorite, favoriteStrength, underdog, underdogStrength] =
     strengthA >= strengthB
