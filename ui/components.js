@@ -37,12 +37,41 @@ export function predictionPanel(result, teamA, teamB) {
     ? t('drawLikely')
     : `${t('favourite')}: ${favTeam.flag} ${favTeam.name}`;
 
+  function poissonProbs(lambda, upTo = 5) {
+    const probs = [];
+    let p = Math.exp(-lambda);
+    probs.push(p);
+    for (let k = 1; k <= upTo; k++) {
+      p = p * lambda / k;
+      probs.push(p);
+    }
+    return probs;
+  }
+
+  function poissonTable(xg, predictedGoals, teamName) {
+    const probs = poissonProbs(xg);
+    const cells = probs.map((p, k) => {
+      const pct = (p * 100).toFixed(1);
+      const isMode = k === predictedGoals;
+      return `<td class="poisson-cell ${isMode ? 'poisson-mode' : ''}">${k}<br><span class="poisson-pct">${pct}%</span></td>`;
+    }).join('');
+    return `
+      <div class="poisson-block">
+        <div class="poisson-label">${teamName} · xG ${xg.toFixed(2)}</div>
+        <table class="poisson-table"><tr>${cells}</tr></table>
+      </div>`;
+  }
+
   return `
     <div class="prediction-panel">
       <div class="prediction-score">
         <div class="score-display">${teamA.flag} ${result.predictedScore.home} : ${result.predictedScore.away} ${teamB.flag}</div>
         <div class="favorite-label">🏆 ${favoriteLabel}</div>
         <div class="xg-label">xG: ${result.xg.home} – ${result.xg.away}</div>
+      </div>
+      <div class="poisson-distribution">
+        ${poissonTable(result.xg.home, result.predictedScore.home, teamA.flag + ' ' + teamA.name)}
+        ${poissonTable(result.xg.away, result.predictedScore.away, teamB.flag + ' ' + teamB.name)}
       </div>
       <div class="prob-strip">
         <div class="prob-segment prob-home" style="flex:${result.homeWinPct}">${teamA.name} ${result.homeWinPct}%</div>

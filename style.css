@@ -532,6 +532,54 @@ body {
 .lang-btn:hover { background: var(--accent); color: var(--text); border-color: var(--accent); }
 .lang-btn.active { background: var(--accent); color: var(--text); border-color: var(--accent); }
 
+/* Poisson distribution table */
+.poisson-distribution {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.poisson-block {
+  background: var(--surface);
+  padding: 10px 16px;
+}
+
+.poisson-label {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+
+.poisson-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.poisson-cell {
+  text-align: center;
+  padding: 4px 2px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+  line-height: 1.3;
+}
+
+.poisson-pct {
+  font-size: 10px;
+  font-weight: 400;
+  display: block;
+}
+
+.poisson-mode {
+  color: var(--gold);
+  background: rgba(251, 191, 36, 0.12);
+  border-radius: 4px;
+}
+
 /* Section title */
 .section-title {
   font-size: 18px;
